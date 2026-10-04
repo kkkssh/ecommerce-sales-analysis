@@ -6,6 +6,28 @@
 -- Select database
 USE ecommerce_analysis;
 
+/*
+=========================================
+Data Check Summary
+=========================================
+
+Total records: 541,909
+Missing customer IDs: 135,080
+Cancelled transactions: 9,288
+Duplicate groups: 4,879
+Extra duplicate rows: 5,268
+Zero-price rows: 2,519
+Negative-price rows: 2
+
+Additional findings:
+- 1,336 rows have negative quantities without
+  cancellation invoice numbers. All have a unit price of zero.
+- Both negative-price records are labelled
+  'Adjust bad debt'.
+
+These findings will be reviewed during data cleaning.
+*/
+
 
 -- =========================================
 -- 1. Check Total Number of Rows
