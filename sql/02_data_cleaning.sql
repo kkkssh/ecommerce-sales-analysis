@@ -36,8 +36,10 @@ Negative-price Rows: Exclude
 - The two negative-price rows are labelled 'Adjust bad debt'.
 - Exclude these rows from regular sales analysis.
 
-Duplicate Records
-
+Duplicate Records: Exclude
+- Remove exact duplicate rows from the cleaned table.
+- Create a separate deduplicated table using DISTINCT.
+- Keep one copy of each identical row for the sales analysis.
 
 */
 
