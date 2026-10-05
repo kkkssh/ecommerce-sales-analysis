@@ -36,6 +36,9 @@ Negative-price Rows: Exclude
 - The two negative-price rows are labelled 'Adjust bad debt'.
 - Exclude these rows from regular sales analysis.
 
+Duplicate Records
+
+
 */
 
 
@@ -130,3 +133,103 @@ SELECT COUNT(*) AS negative_price_rows
 FROM online_retail_clean
 WHERE unitprice < 0;
 
+
+-- =========================================
+-- 5. Duplicate Records
+-- =========================================
+
+-- Identify duplicate groups
+SELECT COUNT(*) AS duplicate_groups
+FROM (
+    SELECT
+        invoiceno,
+        stockcode,
+        description,
+        quantity,
+        invoicedate,
+        unitprice,
+        customerid,
+        country
+    FROM online_retail_clean
+    GROUP BY
+        invoiceno,
+        stockcode,
+        description,
+        quantity,
+        invoicedate,
+        unitprice,
+        customerid,
+        country
+    HAVING COUNT(*) > 1
+) AS duplicates; -- 4,847 duplicate groups
+
+
+-- Calculate extra duplicate rows
+SELECT SUM(duplicate_count - 1) AS extra_duplicate_rows
+FROM (
+    SELECT COUNT(*) AS duplicate_count
+    FROM online_retail_clean
+    GROUP BY
+        invoiceno,
+        stockcode,
+        description,
+        quantity,
+        invoicedate,
+        unitprice,
+        customerid,
+        country
+    HAVING COUNT(*) > 1
+) AS duplicates; -- 5,231 extra duplicate rows
+
+
+/*
+=========================================
+Duplicate Records Summary
+=========================================
+
+Current rows: 532,619
+Duplicate groups: 4,847
+Extra duplicate rows: 5,231
+
+Duplicate Records are exact matches across
+all columns and are removed using DISTINCT.
+*/
+
+
+-- Count rows after removing duplicate records
+SELECT COUNT(*) AS deduplicated_rows
+FROM (
+    SELECT DISTINCT *
+    FROM online_retail_clean
+) AS deduplicated; -- 527,388
+
+
+-- Create the deduplicated table
+CREATE TABLE online_retail_deduplicated AS
+SELECT DISTINCT *
+FROM online_retail_clean;
+
+
+/*
+=========================================
+Row Count Check
+=========================================
+
+Original rows: 541,909
+Cancelled Transactions removed: 9,288
+Negative-price Rows removed: 2
+Rows before deduplication: 532,619
+Extra Duplicate Rows removed: 5,231
+Final rows: 527,388
+*/
+
+
+-- Check row counts
+SELECT COUNT(*) AS original_rows
+FROM online_retail; -- 541,909
+
+SELECT COUNT(*) AS clean_table_rows
+FROM online_retail_clean; -- 532,619
+
+SELECT COUNT(*) AS deduplicated_table_rows
+FROM online_retail_deduplicated; -- 527,388
