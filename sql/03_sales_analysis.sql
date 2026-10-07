@@ -10,7 +10,6 @@ USE ecommerce_analysis;
 -- Monthly Sales Trend
 -- Sales by Country
 -- Top Products
--- Customer Purchasing Behaviour
 
 
 -- =========================================
@@ -185,6 +184,77 @@ ORDER BY
 -- Netherlands: £3,004.70
 -- Australia: £2,429.01
 -- Japan: £1,969.28
+
+
+-- =========================================
+-- 3. Top Products
+-- =========================================
+
+-- Revenue by Products
+SELECT
+    stockcode,
+    description,
+    SUM(quantity * unitprice) AS revenue
+FROM online_retail_deduplicated
+-- Exclude non-product items such as postage and manual transactions.
+WHERE stockcode NOT IN ('DOT', 'POST', 'M')
+GROUP BY
+    stockcode,
+    description
+ORDER BY
+    revenue DESC;
+
+-- REGENCY CAKESTAND 3 TIER - £174,156.54
+-- PAPER CRAFT, LITTLE BIRDIE - £168,469.60
+-- WHITE HANGING HEART T-LIGHT HOLDER - £106,236.72
+-- PARTY BUNTING - £99,445.23
+-- JUMBO BAG RED RETROSPOT - £94,159.81
+
+
+-- Sales Quantity by Products
+SELECT
+    stockcode,
+    description,
+    SUM(quantity) AS sales_quantity
+FROM online_retail_deduplicated
+-- Exclude non-product items such as postage and manual transactions.
+WHERE stockcode NOT IN ('DOT', 'POST', 'M')
+GROUP BY
+    stockcode,
+    description
+ORDER BY
+    sales_quantity DESC;
+
+-- PAPER CRAFT, LITTLE BIRDIE - 80,995
+-- MEDIUM CERAMIC TOP STORAGE JAR - 78,033
+-- WORLD WAR 2 GLIDERS ASSTD DESIGNS - 54,951
+-- JUMBO BAG RED RETROSPOT - 48,375
+-- WHITE HANGING HEART T-LIGHT HOLDER - 37,876
+
+
+-- Number of Orders by Products
+SELECT
+    stockcode,
+    description,
+    COUNT(DISTINCT invoiceno) AS number_of_orders
+FROM online_retail_deduplicated
+-- Exclude non-product items such as postage and manual transactions.
+WHERE stockcode NOT IN ('DOT', 'POST', 'M')
+GROUP BY
+    stockcode,
+    description
+ORDER BY
+    number_of_orders DESC;
+
+-- WHITE HANGING HEART T-LIGHT HOLDER - 2,260 orders
+-- JUMBO BAG RED RETROSPOT - 2,092
+-- REGENCY CAKESTAND 3 TIER - 1,989
+-- PARTY BUNTING - 1,686
+-- LUNCH BAG RED RETROSPOT - 1,564
+
+
+
+
 
 
 
