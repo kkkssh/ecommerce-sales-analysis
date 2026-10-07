@@ -49,7 +49,7 @@ The final table used for analysis is `online_retail_deduplicated`.
 
 ### 3. Sales Analysis
 
-Analyzed sales using monthly sales trend, sales by country, top products, and customer purchasing behavior.
+Analyzed sales using monthly sales trend, sales by country, and top products.
 
 #### Monthly Sales Trend
 
@@ -71,3 +71,47 @@ November 2011 had the highest Revenue, Sales Quantity, and Number of Orders.
 The AOV in November was £497.80, which was not the highest.
 
 December 2011 is a partial month, so it should be interpreted with caution when comparing monthly results.
+
+#### Sales by Country
+
+**Key findings**
+- The UK had the highest Revenue, Sales Quantity, and Number of Orders.
+- The Netherlands ranked second in Revenue and Sales Quantity, despite having fewer Orders than Germany and France.
+- Singapore had the highest AOV at £3,039.90, followed by the Netherlands at £3,004.70.
+
+#### Top Products
+
+**Key findings**
+- REGENCY CAKESTAND 3 TIER had the highest Revenue at £174,156.54.
+- PAPER CRAFT, LITTLE BIRDIE had the highest Sales Quantity at 80,995 units.
+- WHITE HANGING HEART T-LIGHT HOLDER had the highest Number of Orders at 2,260.
+
+
+### 4. Customer Analysis
+
+Analyzed customer purchasing behavior using customer count, Customer Revenue, Purchase Frequency, Top Customers, and Repeat Customers.
+
+#### Customer Overview
+
+- There were 4,339 unique customers with a Customer ID.
+
+#### Customer Revenue
+
+#### Customer Purchase Frequency
+
+- Customer 12748 had the highest number of Orders with 210.
+- Customer 14911 ranked second with 201 Orders.
+
+#### Top Customers by Revenue
+
+- Customer 14646 had the highest Revenue at £280,206.02.
+- Customer 18102 ranked second with £259,657.30.
+- Customer 17450 ranked third with £194,390.79.
+- Customer 16446 ranked fourth with £168,472.50.
+- Customer 14911 ranked fifth with £143,711.17.
+
+#### Repeat Customers
+
+- 2,845 out of 4,339 customers made two or more Orders.
+- 1,494 customers made only one Order.
+- The Repeat Customer Rate was 65.6%.
