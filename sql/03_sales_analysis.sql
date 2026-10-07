@@ -113,3 +113,81 @@ GROUP BY
 ORDER BY
     year,
     month;
+
+
+-- =========================================
+-- 2. Sales by Country
+-- =========================================
+
+-- Revenue by Country
+SELECT
+    country,
+    SUM(quantity * unitprice) AS revenue
+FROM online_retail_deduplicated
+GROUP BY
+    country
+ORDER BY
+    revenue DESC;
+
+-- United Kingdom: £9,001,744.09
+-- Netherlands: £285,446.34
+-- EIRE: £283,140.52
+-- Germany: £228,678.40
+-- France: £209,625.37
+
+
+-- Sales Quantity by Country
+SELECT
+    country,
+    SUM(quantity) AS sales_quantity
+FROM online_retail_deduplicated
+GROUP BY
+    country
+ORDER BY
+    sales_quantity DESC;
+
+-- United Kingdom: 4,511,370
+-- Netherlands: 200,937
+-- EIRE: 147,281
+-- Germany: 119,156
+-- France: 112,061
+
+
+-- Number of Orders by Country
+SELECT
+    country,
+    COUNT(DISTINCT invoiceno) AS number_of_orders
+FROM online_retail_deduplicated
+GROUP BY
+    country
+ORDER BY
+    number_of_orders DESC;
+
+-- United Kingdom: 20,120
+-- Germany: 457
+-- France: 392
+-- EIRE: 288
+-- Belgium: 98
+
+
+-- Average Order Value (AOV) = Revenue / Number of Orders
+SELECT
+    country,
+    ROUND(SUM(quantity * unitprice) / COUNT(DISTINCT invoiceno), 2)
+    AS average_order_value
+FROM online_retail_deduplicated
+GROUP BY
+    country
+ORDER BY
+    average_order_value DESC;
+
+-- Singapore: £3,039.90
+-- Netherlands: £3,004.70
+-- Australia: £2,429.01
+-- Japan: £1,969.28
+
+
+
+
+
+
