@@ -115,3 +115,16 @@ Analyzed customer purchasing behavior using customer count, Customer Revenue, Pu
 - 2,845 out of 4,339 customers made two or more Orders.
 - 1,494 customers made only one Order.
 - The Repeat Customer Rate was 65.6%.
+
+
+### 5. Advanced Analysis
+
+#### Customer Segmentation
+
+Grouped customers into three segments based on Revenue:
+
+- High Value: £10,000 or more (104 customers, 2.4%)
+- Medium Value: £5,000-£9,999 (170 customers, 3.9%)
+- Low Value: Less than £5,000 (4,065 customers, 93.7%)
+
+Most customers were in the Low Value segment, while High Value customers made up a small part of the customer base.
