@@ -128,3 +128,29 @@ Grouped customers into three segments based on Revenue:
 - Low Value: Less than £5,000 (4,065 customers, 93.7%)
 
 Most customers were in the Low Value segment, while High Value customers made up a small part of the customer base.
+
+
+### 6. Power BI Dashboard
+
+Created an interactive Power BI dashboard using the `online_retail_deduplicated` table created during the SQL data cleaning process.
+
+![E-commerce Sales Dashboard](powerbi/ecommerce_sales_dashboard.jpg)
+
+**Dashboard Overview**
+- Total Revenue
+- Total Orders
+- Unique Customers
+- Monthly Revenue Trend
+- Top 10 Countries by Revenue
+- Top 10 Products by Revenue
+
+The dashboard visualizes sales performance across different months, countries, and products.
+
+
+## Tools and Technologies
+
+- **Database:** MySQL
+- **SQL Development Tool:** DBeaver
+- **Data Visualization:** Microsoft Power BI
+- **Data Cleaning:** SQL
+- **Analysis:** Sales trends, customer behavior, and customer segmentation
