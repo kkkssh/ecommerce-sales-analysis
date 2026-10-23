@@ -95,8 +95,6 @@ Analyzed customer purchasing behavior using customer count, Customer Revenue, Pu
 
 - There were 4,339 unique customers with a Customer ID.
 
-#### Customer Revenue
-
 #### Customer Purchase Frequency
 
 - Customer 12748 had the highest number of Orders with 210.
@@ -126,6 +124,8 @@ Grouped customers into three segments based on Revenue:
 - High Value: £10,000 or more (104 customers, 2.4%)
 - Medium Value: £5,000-£9,999 (170 customers, 3.9%)
 - Low Value: Less than £5,000 (4,065 customers, 93.7%)
+
+The thresholds were used to group customers by their total revenue and compare the size of each segment.
 
 Most customers were in the Low Value segment, while High Value customers made up a small part of the customer base.
 
