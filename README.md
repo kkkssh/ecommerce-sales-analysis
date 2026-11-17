@@ -136,10 +136,12 @@ Created an interactive Power BI dashboard using the `online_retail_deduplicated`
 
 ![E-commerce Sales Dashboard](powerbi/ecommerce_sales_dashboard.jpg)
 
+**Dashboard KPIs**
+- Total Revenue: £10,642,110.80
+- Total Orders: 22,062
+- Unique Customers: 4,339
+
 **Dashboard Overview**
-- Total Revenue
-- Total Orders
-- Unique Customers
 - Monthly Revenue Trend
 - Top 10 Countries by Revenue
 - Top 10 Products by Revenue
